@@ -1,5 +1,10 @@
+
+// 初始化时主动调用
+
+
 // 获取宠物元素
 let pet = document.getElementById('pet');
+let talk = document.getElementById('talk');
 // 旋转角度
 let deg = 0;
 // 旋转角度Y
@@ -48,8 +53,9 @@ let walk = {
     max: 130
 }
 
-const music = new Audio('/img/img/star.mp3');
-
+//const music = new Audio('/img/img/star.mp3');
+var music = document.getElementById("music");
+//music.muted = true;
 
 // 点击事件处理
 document.getElementById("pet").onclick = function () {
@@ -84,10 +90,12 @@ window.addEventListener('mousemove', function (event) {
 setInterval(() => {
     // 处于追逐鼠标状态
     if (isCatchUp == false && isIdle == false) {
+		SpecialSay(chasing_talk);
         catchUpState();
     }
     // 处于攻击状态
     else if (isCatchUp == true && isIdle == false) {
+		SpecialSay(playing_talk);
         attackState();
     }
     // 处于点击状态
@@ -104,6 +112,7 @@ function catchUpState() {
         document.getElementById("pet").src = "/img/img/眨眼.gif"
         // 因为不同的GIF图对应的宽高可能有差别，需要调整的可以在这里调整
         //pet.style.width = 50 + "px"
+		
         // 当前动画帧+1
         walk.current++
     }
@@ -128,13 +137,15 @@ function catchUpState() {
         // 实际的画出当前的宠物位置
         pet.style.left = position.x + "px"
         pet.style.top = position.y + "px"
-        count++
+		move_talk();
+        count++;
         walk.current++;
     }
     // 结束播放追逐状态GIF，同时开始重新播放追逐状态GIF图
     else if (walk.current >= walk.max) {
         walk.current = 0;
         document.getElementById("pet").src = "/img/img/眨眼.gif"
+		
     }
  
 }
@@ -143,6 +154,8 @@ function attackState() {
     // 准备播放攻击状态动画
     if (attack.current == 0) {
         // 调整播放的动画
+		//SpecialEnd();
+		SpecialSay(playing_talk);
         document.getElementById("pet").src = "/img/img/弹琴.gif"
         //pet.style.width = 100 + "px"
         attack.current++
@@ -160,9 +173,10 @@ function attackState() {
         attack.current = 0;
 		music.pause();
 		music.load();
+		//document.getElementById('talk').style = ""
         document.getElementById("pet").src = "/img/img/眨眼.gif"
         //pet.style.width = 50 + "px"
- 
+		SpecialEnd();
     }
  
 }
@@ -190,3 +204,9 @@ function clickState() {
  
 }
 
+function move_talk(){
+	var talkx=pet.offsetLeft+pet.offsetWidth/2- talk.offsetWidth/2;
+	var talky=pet.offsetTop- 10;
+	document.getElementById("talk").style.left = talkx + "px"
+	document.getElementById("talk").style.top = talky + "px"
+}

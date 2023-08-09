@@ -69,7 +69,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 308
+			总文章数 312
 		</nav>
 
 		<nav class="header-smart-menu">
@@ -698,15 +698,54 @@
   </div>
 </footer>
 
+<style>
+    .pet {
+        width: 200px;
+        height: 200px;
+        position: fixed;
+		right: 0;
+		bottom: 0;
+        background-size: cover;
+		
+    }
+	.talk {
+		<!-- opacity: 0; -->
+		margin: -20px 20px;
+		padding: 5px 10px;
+		border: 1px solid rgba(224, 186, 140, 0.62);
+		border-radius: 12px;
+		background-color: rgba(236, 217, 188, 0.5);
+		box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+		text-overflow: ellipsis;
+		overflow: hidden;
+		position: fixed;
+		animation-delay: 5s;
+		animation-duration: 50s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+		font-size: 5px;
+		display: none;
+		animation: anim 4s;
+}
+@keyframes anim { 
+	0% {opacity: 0;}
+	100%{opacity:1;
+}
+  </style>
 
-<img class="pet" id="pet" 
-style="width: 200px;
-    height: 200px;
-    position: fixed;
-	right: 0;
-	bottom: 0;
-    background-size: cover;" src="/img/img/眨眼.gif">
+
+<div>
+	<img class="pet" id="pet" src="/img/img/眨眼.gif">
+	<div class="talk" id="talk">
+	</div>
+	<audio id="music" class="media-audio" style="opacity: 0;"
+		src="/img/img/star.mp3" preload loop="loop"></audio >
+</div>
 <script src="/pet.js" type="text/javascript"></script>
+<script src="/talk.js" type="text/javascript"></script>
+<script type="text/javascript">
+	move_talk();
+</script>
     </div>
     <script>
 	var yiliaConfig = {
@@ -1374,6 +1413,22 @@ style="width: 200px;
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">弹丸论破v3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">雾雨谜宫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">超侦探事件簿</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">超侦探事件簿&nbsp;雾雨谜宫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">幽诚</a>
               </li>
             
             <div class="clearfix"></div>
