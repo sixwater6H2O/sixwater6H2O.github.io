@@ -25,7 +25,7 @@ document.getElementById('sth').onclick = function (){
 	SpecialSay(sth_talking);
 	setTimeout(function (){
 		SpecialEnd();
-	},6000);
+	},8000);
 }
 document.getElementById('close_menu').onclick = function (){
 	hideMenu();

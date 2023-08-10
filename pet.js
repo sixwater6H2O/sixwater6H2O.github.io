@@ -62,10 +62,10 @@ const music = new Audio('/img/img/star.mp3');
 document.getElementById("pet").onclick = function () {
 	isClick = true;
 	if (isCatchUp != true || isIdle != false){
+		music.pause();
+		music.load();
 		showMenu();
 	}
-	music.pause();
-	music.load();
 };
  
 // 鼠标移动事件处理
@@ -93,6 +93,7 @@ window.addEventListener('mousemove', function (event) {
  
 // 每过10毫秒，循环执行
 setInterval(() => {
+	move_talk();
     // 处于追逐鼠标状态
     if (isCatchUp == false && isIdle == false) {
 		SpecialSay(chasing_talk);
