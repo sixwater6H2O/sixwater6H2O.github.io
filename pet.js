@@ -53,13 +53,19 @@ let walk = {
     max: 130
 }
 
-//const music = new Audio('/img/img/star.mp3');
-var music = document.getElementById("music");
+const music = new Audio('/img/img/star.mp3');
+//var music = document.getElementById("music");
+
 //music.muted = true;
 
 // 点击事件处理
 document.getElementById("pet").onclick = function () {
-    isClick = true;
+	isClick = true;
+	if (isCatchUp != true || isIdle != false){
+		showMenu();
+	}
+	music.pause();
+	music.load();
 };
  
 // 鼠标移动事件处理
@@ -84,7 +90,6 @@ window.addEventListener('mousemove', function (event) {
     //这里每一次移动鼠标都要重新计算距离，所以这里的count需要清零
     count = 0;
 })
- 
  
 // 每过10毫秒，循环执行
 setInterval(() => {
@@ -198,7 +203,7 @@ function clickState() {
         document.getElementById("pet").src = "/img/img/眨眼.gif"
         //pet.style.width = 50 + "px"
         isClick = false;
-        isIdle = false;
+        //isIdle = false;
     }
  
  
@@ -209,4 +214,9 @@ function move_talk(){
 	var talky=pet.offsetTop- 10;
 	document.getElementById("talk").style.left = talkx + "px"
 	document.getElementById("talk").style.top = talky + "px"
+	
+	var menux=pet.offsetLeft;
+	var menuy=pet.offsetTop;
+	document.getElementById("pet_menu").style.left = menux + "px"
+	document.getElementById("pet_menu").style.top = menuy + "px"
 }

@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 312
+			总文章数 313
 		</nav>
 
 		<nav class="header-smart-menu">
@@ -173,6 +173,54 @@
       
       <section class="archives-wrap">
         <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/08/10/%E5%85%B3%E4%BA%8E%E6%8B%89%E5%A5%87/" class="archive-article-date">
+  	<time datetime="2023-08-10T01:34:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/08/10/%E5%85%B3%E4%BA%8E%E6%8B%89%E5%A5%87/">关于拉奇</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">置顶</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
           <a href="/archives/2020" class="archive-year">2020</a>
         </div>
         <div class="archives">
@@ -264,10 +312,23 @@
 		animation-duration: 50s;
 		animation-iteration-count: infinite;
 		animation-timing-function: ease-in-out;
-		font-size: 5px;
+		font-size: 10px;
 		display: none;
 		animation: anim 4s;
-}
+	}
+	.nav{
+        margin: -20px 20px;
+		padding: 5px 10px;
+		border: 1px solid rgba(224, 186, 140, 1);
+		border-radius: 12px;
+		background-color: rgba(236, 217, 188, 0.85);
+		box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+		text-overflow: ellipsis;
+		overflow: hidden;
+		position: fixed;
+		font-size: 10px;
+		display: none;
+    }
 @keyframes anim { 
 	0% {opacity: 0;}
 	100%{opacity:1;
@@ -281,9 +342,32 @@
 	</div>
 	<audio id="music" class="media-audio" style="opacity: 0;"
 		src="/img/img/star.mp3" preload loop="loop"></audio >
+	<ul class="nav" id="pet_menu">
+		<div>嗯？有什么事吗？</div>
+        <li id="playing">
+            <a href="#">★请为我弹琴吧！</a>
+        </li>
+        <li id="return_ori">
+            <a href="#">★回到原位</a>
+        </li>
+		<li>
+            <a href="https://sixwater6h2o.github.io/2020/07/17/%E7%BD%AE%E9%A1%B6/" target="_blank" rel="noopener">★介绍一下这里</a>
+        </li>
+        <li>
+            <a href="">★自我介绍</a>
+        </li>
+		<li id="sth">
+            <a href="#">★这是什么？拉奇，亲一口</a>
+        </li>
+		<li id="close_menu">
+            <a href="#">★关闭菜单</a>
+        </li>
+    </ul>
+
 </div>
 <script src="/pet.js" type="text/javascript"></script>
 <script src="/talk.js" type="text/javascript"></script>
+<script src="/menu.js" type="text/javascript"></script>
 <script type="text/javascript">
 	move_talk();
 </script>
