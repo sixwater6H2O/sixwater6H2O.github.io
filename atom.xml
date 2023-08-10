@@ -6,7 +6,7 @@
   <link href="http://sixwater6h2o.space/atom.xml" rel="self"/>
   
   <link href="http://sixwater6h2o.space/"/>
-  <updated>2023-08-10T04:12:28.138Z</updated>
+  <updated>2023-08-10T04:47:19.429Z</updated>
   <id>http://sixwater6h2o.space/</id>
   
   <author>
@@ -17,16 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于拉奇</title>
+    <title>关于看板</title>
     <link href="http://sixwater6h2o.space/2023/08/10/%E5%85%B3%E4%BA%8E%E6%8B%89%E5%A5%87/"/>
     <id>http://sixwater6h2o.space/2023/08/10/%E5%85%B3%E4%BA%8E%E6%8B%89%E5%A5%87/</id>
     <published>2023-08-10T01:34:30.000Z</published>
-    <updated>2023-08-10T04:12:28.138Z</updated>
+    <updated>2023-08-10T04:47:19.429Z</updated>
     
-    <content type="html"><![CDATA[<p>有关拉奇</p><a id="more"></a><h1 id="有关拉奇"><a href="#有关拉奇" class="headerlink" title="有关拉奇"></a>有关拉奇</h1><h1 id="有关看板娘"><a href="#有关看板娘" class="headerlink" title="有关看板娘"></a>有关看板娘</h1>]]></content>
+    <content type="html"><![CDATA[<center><Font size=4>当前看板：园田拉奇</Font></center><center><Font size=2 color="grey">图/桃小黑</Font></center><center><Font size=2 color="grey">制作/六点儿水</Font></center><a id="more"></a><h3 id="有关拉奇"><a href="#有关拉奇" class="headerlink" title="有关拉奇"></a>有关拉奇</h3><h3 id="有关看板"><a href="#有关看板" class="headerlink" title="有关看板"></a>有关看板</h3>]]></content>
     
     
-    <summary type="html">&lt;p&gt;有关拉奇&lt;/p&gt;</summary>
+    <summary type="html">&lt;center&gt;&lt;Font size=4&gt;当前看板：园田拉奇&lt;/Font&gt;&lt;/center&gt;
+&lt;center&gt;&lt;Font size=2 color=&quot;grey&quot;&gt;图/桃小黑&lt;/Font&gt;&lt;/center&gt;
+
+&lt;center&gt;&lt;Font size=2 color=&quot;grey&quot;&gt;制作/六点儿水&lt;/Font&gt;&lt;/center&gt;</summary>
     
     
     

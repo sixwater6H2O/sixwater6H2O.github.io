@@ -17,6 +17,7 @@ var arch_talking = "这里是归档，可以按时间线查看文章。";
 var post_talking = "正在查看"+document.title+"，谢谢喜欢！";
 var copy_talking = "咦？刚刚复制了什么……？";
 var sth_talking = "呜哇——！请、请不要这么做！";
+var intro_talking = "啊，我的名字是园田拉奇，目前在四分谷音高就读。正在DADA老师门下学习钢琴。";
 
 
 function showMessage(){
@@ -70,6 +71,9 @@ function say_welcome(){
 	}
 	else if (title==="厌城"){
 		say(home_talking);
+	}
+	else if (title.includes("关于看板 |")){
+		say(intro_talking);
 	}
 	else{
 		say(post_talking);
