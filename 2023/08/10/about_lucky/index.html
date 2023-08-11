@@ -16,7 +16,7 @@
 <meta property="og:description" content="当前看板：园田拉奇 图&#x2F;桃小黑  制作&#x2F;六点儿水">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-10T01:34:30.000Z">
-<meta property="article:modified_time" content="2023-08-10T09:58:39.905Z">
+<meta property="article:modified_time" content="2023-08-11T08:50:24.655Z">
 <meta property="article:author" content="六点儿水">
 <meta property="article:tag" content="置顶">
 <meta name="twitter:card" content="summary">
@@ -235,6 +235,7 @@
 <li>介绍一下这里：跳转至<a href="https://sixwater6h2o.github.io/2020/07/17/置顶/" target="_self">置顶</a>页面</li>
 <li>自我介绍：跳转至看板介绍页面（本页面）</li>
 <li><Font size=1 color="grey">这是什么？拉奇，亲一口：很显然，只是xp放出（？）</Font></li>
+<li>隐藏看板：关闭看板，点击右下角星星后恢复</li>
 <li>关闭菜单</li>
 </ul>
 </li>
@@ -448,6 +449,15 @@
         background-size: cover;
 		
     }
+	.little_pet {
+	    width: 20px;
+        height: 20px;
+        position: fixed;
+		right: 0;
+		bottom: 0;
+        background-size: cover;
+		cursor: pointer;
+	}
 	.talk {
 		<!-- opacity: 0; -->
 		margin: -20px 20px;
@@ -489,6 +499,7 @@
 
 <div>
 	<img class="pet" id="pet" src="/img/img/眨眼.gif">
+	<img class="little_pet" id="little_pet" src="/img/img/小星星.png" style="display: none;">
 	<div class="talk" id="talk">
 	</div>
 	<audio id="music" class="media-audio" style="opacity: 0;"
@@ -509,6 +520,9 @@
         </li>
 		<li id="sth">
             <a href="javaScript:void(0);">★这是什么？拉奇，亲一口</a>
+        </li>
+		<li id="close_pet">
+            <a href="javaScript:void(0);">★隐藏看板</a>
         </li>
 		<li id="close_menu">
             <a href="javaScript:void(0);">★关闭菜单</a>

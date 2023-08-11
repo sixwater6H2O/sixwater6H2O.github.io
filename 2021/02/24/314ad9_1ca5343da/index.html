@@ -529,6 +529,15 @@
         background-size: cover;
 		
     }
+	.little_pet {
+	    width: 20px;
+        height: 20px;
+        position: fixed;
+		right: 0;
+		bottom: 0;
+        background-size: cover;
+		cursor: pointer;
+	}
 	.talk {
 		<!-- opacity: 0; -->
 		margin: -20px 20px;
@@ -570,6 +579,7 @@
 
 <div>
 	<img class="pet" id="pet" src="/img/img/眨眼.gif">
+	<img class="little_pet" id="little_pet" src="/img/img/小星星.png" style="display: none;">
 	<div class="talk" id="talk">
 	</div>
 	<audio id="music" class="media-audio" style="opacity: 0;"
@@ -590,6 +600,9 @@
         </li>
 		<li id="sth">
             <a href="javaScript:void(0);">★这是什么？拉奇，亲一口</a>
+        </li>
+		<li id="close_pet">
+            <a href="javaScript:void(0);">★隐藏看板</a>
         </li>
 		<li id="close_menu">
             <a href="javaScript:void(0);">★关闭菜单</a>

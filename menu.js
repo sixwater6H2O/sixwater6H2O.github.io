@@ -1,3 +1,4 @@
+var little_pet = document.getElementById('little_pet');
 function showMenu(){
 	hideMessage();
 	document.getElementById('pet_menu').style.display = 'block';
@@ -26,6 +27,26 @@ document.getElementById('sth').onclick = function (){
 	setTimeout(function (){
 		SpecialEnd();
 	},8000);
+}
+document.getElementById('close_pet').onclick = function (){
+	hideMenu();
+	isDisplay = false;
+	SpecialSay(close_talking);
+	setTimeout(function (){
+		pet.style.cssText = "right: 0;bottom: 0;display:none;";
+		little_pet.style.cssText = "display:block;";
+		SpecialEnd();
+	},3000);
+	
+}
+little_pet.onclick = function (){
+	pet.style.cssText = "display:block;";
+	little_pet.style.cssText = "display:none;";
+	isDisplay = true;
+	SpecialSay(open_talking);
+	setTimeout(function (){
+		SpecialEnd();
+	},5000);
 }
 document.getElementById('close_menu').onclick = function (){
 	hideMenu();
