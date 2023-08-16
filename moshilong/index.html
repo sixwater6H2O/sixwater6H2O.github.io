@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>歿世龙模拟器 </title>
+	<style>
+	.ban {
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+		position: absolute;
+    }
+	.ban:hover{
+		cursor:help;
+	}
+	.count{
+		font-size:30px;
+		left:0;
+		top:0;
+		background-size: cover;
+		position: absolute;
+	}
+	.styled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+  
+	right:0;
+	top:0;
+	background-size: cover;
+		position: absolute;
+}
+.styled:hover{
+	background-color: #E6E6E6;
+	cursor: pointer;
+}
+.styled:active{
+	background-color: #CFCFCF;
+}
+.author{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size:10px;
+	
+}
+
+	</style>
+</head>
+<body style="background-color: #ffffff">
+    <div id='back'>
+		<img src="img/background.png" style="position: absolute;
+		width:500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
+		<div id="count" class="count">斑船长数量：0</div>
+		<div id="author" class="author">图/桃小黑	制作/六点儿水</div>
+	</div>
+	<div id="append"></div>
+	<input class="styled" type="button" value="生气啦?" id="clear">
+<script type="text/javascript" src="js/alert.js"></script>
+<script type="text/javascript">
+	alert("点击屏幕，体验歿世龙被斑船长包围的快乐吧！");
+	var cnt=0;
+	var iscreate=true;
+	var showcnt=document.getElementById("count");
+	var interval = setInterval(function(){
+			showcnt.innerHTML ="斑船长数量："+cnt;
+		}, 10);
+	document.addEventListener("click", function (e) {
+		if (iscreate==false){
+			iscreate=true;
+			return;
+		}
+		var maxn=window.innerWidth;
+		cnt+=1;
+        var xx=Math.min(e.clientX-50,maxn-100);
+        var yy=e.clientY-50;
+		if (xx<=0) xx=0;
+		
+		//var ban="<div><img src='ban.png' class='ban' id='ban"+cnt+"' style='top:"+xx+"px;left:"+yy+"px;'></div>"
+		
+		var img = document.createElement('img');
+        //通过属性src指定要显示的图片
+		img.classList.add('ban');
+        img.src = 'img/ban.png';
+		img.class = 'ban';
+		var str="top:"+xx+"px;left:"+yy+"px;weight:20px;height:20px;";
+		img.style.left=xx+"px";
+		img.style.top=yy+"px";
+		img.id="ban"+cnt;
+		
+        //在div中追加图片对象
+		//alert(str);
+        document.getElementById("append").appendChild(img);
+		var rect = img.getBoundingClientRect();
+		var target = window.innerHeight - rect.bottom;
+		document.getElementById("ban"+cnt).onclick = function(){
+			alert("为什么这里会有鸡");
+			iscreate = false;
+		}
+		//img.style.left="0px";
+		var interval = setInterval(function(){
+			//console.info(e.clientY);
+			target-=10;
+			target = Math.max(target,0);
+		//alert(distanceToBottom);
+			if (target<=0){
+				clearInterval(interval);
+			}
+			img.style.cssText="left:"+xx+"px;bottom:"+target+"px";
+		}, 30);
+		
+    })
+	
+	document.getElementById("clear").onclick = function(){
+		iscreate = false;
+		var father = document.getElementById("append");
+		var childs = father.childNodes
+    //顺序删
+		for (var i = 0, len = childs.length; i < len; i++) {
+		  father.removeChild(childs[0])
+		}
+		cnt = 0;
+		alert("那好吧，下次别做歿世龙了。");
+	}
+</script>
+</body> 
+</html>
