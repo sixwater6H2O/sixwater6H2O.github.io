@@ -6,8 +6,8 @@
     <title>歿世龙模拟器 </title>
 	<style>
 	.ban {
-        width: 100px;
-        height: 100px;
+        width: 75px;
+        height: 75px;
         background-size: cover;
 		position: absolute;
     }
@@ -145,13 +145,13 @@
 			if (childs[i].id===item.id){
 				continue;
 			}
-			if (parseInt(item.style.bottom)>=parseInt(childs[i].style.bottom)-50&&
-				parseInt(item.style.bottom)<parseInt(childs[i].style.bottom)+50 && 
-				parseInt(item.style.left)>=parseInt(childs[i].style.left)-50&&
-				parseInt(item.style.left)<=parseInt(childs[i].style.left)+50){
+			if (parseInt(item.style.bottom)>=parseInt(childs[i].style.bottom)-37.5&&
+				parseInt(item.style.bottom)<parseInt(childs[i].style.bottom)+37.5 && 
+				parseInt(item.style.left)>=parseInt(childs[i].style.left)-37.5&&
+				parseInt(item.style.left)<=parseInt(childs[i].style.left)+37.5){
 				//alert(parseInt(item.style.top));
 				//alert(parseInt(childs[i].style.bottom)+100);
-				item.style.cssText="left:"+parseInt(item.style.left)+"px;bottom:"+(parseInt(childs[i].style.bottom)+80)+"px";
+				item.style.cssText="left:"+parseInt(item.style.left)+"px;bottom:"+(parseInt(childs[i].style.bottom)+60)+"px";
 				return true;
 			}
 		}
