@@ -127,10 +127,6 @@ document.getElementById('mask').onclick = function (){
 	
 	//mask.style.left = boxWidth/2+"px";
 	box.appendChild(mask);
-	mask.onclick = function (){
-		mask_cnt -= 1;
-		mask.style.display = 'none';
-	}
 	
 	if (mask_cnt<7){
 		
