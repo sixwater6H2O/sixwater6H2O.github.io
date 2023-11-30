@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+		<meta charset="utf-8">
+		<title>Just KokoHead</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html, body {
+				height: 100%;
+				width: 100%;
+				background-color: rgba(0, 0, 0, .5);
+				overflow: hidden;
+			}
+			.content {
+				height: 100%;
+			}
+			#rainBox {
+				height: 100%;
+			}
+			.rain {
+				position: absolute;
+				width: 2px;
+				height: 50px;
+				background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.66));
+				z-index: 2;
+			}
+			.raindrop {
+				position: absolute;
+				width: 4px;
+				height: 4px;
+				background-color: rgba(255,255,255,.66);
+				border-radius: 50%; 
+				z-index: 3;
+			}
+			.role {
+				position: absolute;
+				width: 2px;
+				height: 50px;
+				background: linear-gradient(rgba(255,255,255,.66), rgba(255,255,255,.66));
+			}
+			.pet {
+				width: 200px;
+				height: 200px;
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				background-size: cover;
+				z-index: 1;
+				
+			}
+			.chasing_shinigami {
+				width: 100px;
+				height: 100px;
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				background-size: cover;
+				z-index: 1;
+				display: none;
+				
+			}
+			.talk {
+				<!-- opacity: 0; -->
+				margin: -20px 20px;
+				padding: 5px 10px;
+				border: 1px solid rgba(224, 186, 140, 0.62);
+				border-radius: 12px;
+				background-color: rgba(236, 217, 188, 0.5);
+				box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+				text-overflow: ellipsis;
+				overflow: hidden;
+				position: fixed;
+				animation-delay: 5s;
+				animation-duration: 50s;
+				animation-iteration-count: infinite;
+				animation-timing-function: ease-in-out;
+				font-size: 14px;
+				display: none;
+				animation: anim 4s;
+				z-index: 10;
+			}
+			.nav{
+				margin: -20px 20px;
+				padding: 5px 10px;
+				border: 1px solid rgba(224, 186, 140, 1);
+				border-radius: 12px;
+				background-color: rgba(236, 217, 188, 0.85);
+				box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+				text-overflow: ellipsis;
+				overflow: hidden;
+				position: fixed;
+				font-size: 14px;
+				display: none;
+				z-index: 10;
+			}
+			li{
+
+				list-style: none;
+				flex-direction: row;
+				vertical-align: middle;
+			}
+			.nav li a {
+				text-decoration: none;
+				flex-direction: row;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.mask {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				background-size: cover;
+				z-index: 5;
+			}
+			.mask:hover{
+				cursor:help;
+			}
+			@keyframes anim { 
+				0% {opacity: 0;}
+				100%{opacity:1;
+			}
+			
+
+		</style>
+	</head>
+	<body>
+		<ul id="help" class="nav" style="position: absolute;
+		z-index: 6;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);">
+			<div>
+			<center><strong>说明</strong></center><br/>
+			&emsp;☆幽玛会在浏览器底部随机走来走去<br/>
+			&emsp;☆每隔10s进行一次随机对话<br/>
+			&emsp;☆（作死一下）选项小死神会追杀鼠标！<br/>
+			&emsp;&nbsp;移动端请点击屏幕躲避<br/>
+			&emsp;☆集齐七个诚的面具或许会有什么事情发生哦？<br/>
+			<br/>
+			说明10s后自动关闭，可以在“菜单-自我介绍”中再次查看。<br/>
+			建议等对话消失再进行操作，不然新对话可能会被强制消失。<br/>
+			<br/>
+			<strong>为了让幽玛有更大的活动空间，推荐使用横屏浏览。<br/></strong>
+			学艺不精！可能会有bug！总之只是无聊小玩具！<br/><br/>
+			<p align="right" style="font-size:11px">
+			立绘：桃小黑<br/>
+			制作：六点儿水<br/>
+			<a href="https://sixwater6h2o.github.io/" target="_blank">sixwater个站</a></p>
+			</div>
+			
+		</ul>
+		<div class="content">
+			<div id="rainBox"></div>
+			<div id="raindrop" style="raindrop"></div>
+		</div>
+		<!-- <div style="position:absolute;left:0;top:0;color:#ffffff;" id="mouse">当前鼠标位置</div> -->
+		<script type="text/javascript" src="js/rain.js" ></script>
+		
+		
+		
+		<!-- kokohead -->
+		<ul class="nav" id="pet_menu">
+		<div>您好？</div>
+		<div>呃……我确实是侦探……<br/></div>
+		<li></li>
+        <li id="playing">
+            <a href="javaScript:void(0);">☞（作死一下）</a>
+        </li>
+        <li id="commission">
+            <a href="javaScript:void(0);">☞想委托你……</a>
+        </li>
+		<li id="sth">
+            <a href="javaScript:void(0);">☞可以给我做点饭吗？</a>
+        </li>
+		<li id="mask">
+            <a href="javaScript:void(0);">☞嗯……？那是什么？</a>
+        </li>
+		<li id="intro">
+            <a href="javaScript:void(0);">☞请做个自我介绍！</a>
+        </li>
+		
+		
+		<li id="close_menu">
+            <a href="javaScript:void(0);">☞关闭菜单</a>
+        </li>
+    </ul>
+		
+		<ul class="nav" id="commission_menu">
+			<div>啊，好的！</div>
+			<div>请问需要我做些什么？<br/></div>
+			<li id="vva_book">
+				<a href="javaScript:void(0);">☞请给我《乌鸦与鸽子的弱肉<br/>强食世界救世物语》</a>
+			</li>
+			<li id="baozi">
+				<a href="javaScript:void(0);">☞请给我肉包</a>
+			</li>
+			<li id="secret">
+				<a href="javaScript:void(0);">☞请给我卡纳依区最大的秘密</a>
+			</li>
+			<li id="gift">
+				<a href="javaScript:void(0);">☞请帮我挑选礼物</a>
+			</li>
+			<li id="murder">
+				<a href="javaScript:void(0);">☞请帮我破案！</a>
+			</li>
+			<li id="other">
+				<a href="javaScript:void(0);">☞其他</a>
+			</li>
+			<li id="close_commission_menu">
+				<a href="javaScript:void(0);">☞关闭菜单</a>
+			</li>
+		</ul>
+		
+		<div class="talk" id="talk">
+		</div>
+		<div class="talk" id="shinigami_talk">
+		</div>
+		<div class="talk" id="chase_talk">
+		</div>
+		<img class="pet" id="pet" src="kokohead/img/pose0.png">
+		<img class="chasing_shinigami" id="chasing_shinigami" src="kokohead/img/shinigami.png">
+		<script type="text/javascript" src="js/pet.js" ></script>
+		<script type="text/javascript" src="js/talk.js" ></script>
+		<script type="text/javascript" src="js/menu.js" ></script>
+		<script type="text/javascript" src="js/commission_menu.js" ></script>
+		
+		<script type="text/javascript">
+			move_talk();
+		</script>
+		<script type="text/javascript" src="js/trans.js" ></script>
+		
+	</body>
+</html>
+
