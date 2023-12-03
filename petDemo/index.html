@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+		<meta charset="utf-8">
+		<!-- 在这里修改页面标题 -->
+		<title>Demo</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html, body {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+			.content {
+				height: 100%;
+			}
+			#Box {
+				height: 100%;
+			}
+			.pet {
+				width: 200px;
+				height: 200px;
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				background-size: cover;
+				z-index: 1;
+				
+			}
+			.talk {
+				<!-- opacity: 0; -->
+				margin: -20px 20px;
+				padding: 5px 10px;
+				border: 1px solid rgba(224, 186, 140, 0.62);
+				border-radius: 12px;
+				<!-- background-color: rgba(236, 217, 188, 0.5); -->
+				box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+				text-overflow: ellipsis;
+				overflow: hidden;
+				position: fixed;
+				animation-delay: 5s;
+				animation-duration: 50s;
+				animation-iteration-count: infinite;
+				animation-timing-function: ease-in-out;
+				font-size: 12px;
+				display: none;
+				animation: anim 4s;
+				z-index: 10;
+			}
+			.nav{
+				margin: -20px 20px;
+				padding: 5px 10px;
+				border: 1px solid rgba(224, 186, 140, 1);
+				border-radius: 12px;
+				background-color: rgba(236, 217, 188, 0.85);
+				box-shadow: 0 3px 15px 2px rgba(191, 158, 118, 0.2);
+				text-overflow: ellipsis;
+				overflow: hidden;
+				position: fixed;
+				font-size: 12px;
+				display: none;
+				z-index: 10;
+			}
+			li{
+
+				list-style: none;
+				flex-direction: row;
+				vertical-align: middle;
+			}
+			.nav li a {
+				text-decoration: none;
+				flex-direction: row;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.fall {
+				position: absolute;
+				background-size: cover;
+				z-index: 5;
+			}
+			.fall:hover{
+				cursor:help;
+			}
+			@keyframes anim { 
+				0% {opacity: 0;}
+				100%{opacity:1;
+			}
+			
+
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>一个简单的小模板<br></h1>
+			<br>
+			<p><br>点击人物打开菜单<br></p>
+			<p><br>简单替换立绘和对话，就可以获得一个在浏览器底部走来走去的你推/OC！<br></p>
+			<p><br>快来试试吧！<br></p>
+			<a href="https://sixwater6h2o.github.io/2023/12/03/petpagedemo"><br>使用说明</a>
+			<a href="https://github.com/sixwater6H2O/pagePetDemo"><br>模板下载(github)</a>
+			<a href="https://pan.baidu.com/s/1iQjdQbSFdMiVgu1Vwxg0eA">模板下载(百度网盘，提取码pppp)</a>
+			<p style = "font-size:12px;bottom:0px;"><br/>作者：
+				<a href = "https://sixwater6h2o.github.io/" target="_blank">六点儿水</a>
+			</p>
+			
+			<a href="https://sixwater6h2o.github.io/2023/08/10/about_lucky/" style="font-size:12px;" target="_blank">复杂版demo1</a>
+			<a href="https://sixwater6h2o.github.io/kokohead/index.html" style="font-size:12px;" target="_blank">复杂版demo2</a>
+			
+		</div>
+		<!-- pet -->
+		<ul class="nav" id="pet_menu">
+			<div id="menu_welcome"></div>
+			<li></li>
+		</ul>
+		
+		<div class="content">
+			<div id="Box"></div>
+		</div>
+		<div class="talk" id="talk">
+		</div>
+		<img class="pet" id="pet">
+		<script type="text/javascript" src="js/function.js" ></script>
+		<script type="text/javascript" src="js/conf.js" ></script>
+		<script type="text/javascript" src="js/pet.js" ></script>
+		<script type="text/javascript" src="js/talk.js" ></script>
+		<script type="text/javascript" src="js/menu.js" ></script>
+		<script type="text/javascript">
+			move_talk();
+			updateTalk();
+			var welcome_talk = "这是载入界面欢迎语";
+			say(welcome_talk);
+			//say(hour_talking);
+			//say_welcome();
+			setInterval(function () {
+				updateTalk();
+			}, 1000);
+			///随机对话
+
+			setInterval(function () {
+			if (SpecialFlag<=0&&isDisplay==true){///有特殊对话时不进行随机对话
+					rand_t();
+				}
+			}, talk_frequency * 1000);
+		</script>
+		
+	</body>
+</html>
+
