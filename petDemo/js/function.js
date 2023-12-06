@@ -91,7 +91,10 @@ function hideMessage(){
 function say(content){
 	talk.innerHTML = content;
 	showMessage();
-	setTimeout("hideMessage();",talk_long * 1000);
+	setTimeout(function(){
+		if (SpecialFlag<=0) hideMessage();
+		
+	},talk_long * 1000);
 	//clearTimeout(t1);
 }
 
@@ -106,8 +109,8 @@ function SpecialSay(content){
 
 }
 function SpecialEnd(){
-	hideMessage();
 	SpecialFlag -= 1;
+	if (SpecialFlag<=0)  hideMessage();
 }
 
 

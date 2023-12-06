@@ -7,6 +7,7 @@ let other_menu = document.getElementById('commission_other');
 function showCommissionMenu(){
 	Menuon = true;
 	SpecialFlag+=1;
+	shinigamiflag+=1;
 	hideMessage();
 	shinigami_hideMessage();
 	commission_menu.style.display = 'block';
@@ -16,6 +17,7 @@ function hideCommissionMenu(){
 	Menuon = false;
 	commission_menu.style.display = 'none';
 	SpecialFlag-=1;
+	shinigamiflag-=1;
 }
 
 
@@ -28,6 +30,7 @@ document.getElementById('close_commission_menu').onclick = function (){
 
 function doing(){
 	pet.style.display = 'none';
+	talk.style.display = 'none';
 	setTimeout(function (){
 		pet.style.display = 'block';
 	},3000);
@@ -58,6 +61,7 @@ document.getElementById('vva_book').onclick = function (){
 			setTimeout(function (){
 				shinigamiSpecialEnd();
 				SpecialFlag -= 1;
+				talk.style.display = 'none';
 				Menuon = false;
 				kokomove();
 			},9000);
@@ -90,6 +94,7 @@ document.getElementById('baozi').onclick = function (){
 			setTimeout(function (){
 				shinigamiSpecialEnd();
 				SpecialFlag -= 1;
+				talk.style.display = 'none';
 				Menuon = false;
 				kokomove();
 			},9000);
@@ -122,6 +127,7 @@ document.getElementById('gift').onclick = function (){
 			setTimeout(function (){
 				shinigamiSpecialEnd();
 				SpecialFlag -= 1;
+				talk.style.display = 'none';
 				Menuon = false;
 				kokomove();
 			},9000);
@@ -142,6 +148,7 @@ document.getElementById('secret').onclick = function (){
 		setTimeout(function (){
 			shinigamiSpecialEnd();
 			SpecialFlag -= 1;
+			talk.style.display = 'none';
 			Menuon = false;
 			kokomove();
 		},5000);
@@ -173,6 +180,7 @@ document.getElementById('murder').onclick = function (){
 			setTimeout(function (){
 				shinigamiSpecialEnd();
 				SpecialFlag -= 1;
+				talk.style.display = 'none';
 				Menuon = false;
 				kokomove();
 			},9000);
@@ -211,6 +219,7 @@ document.getElementById('other').onclick = function (){
 				setTimeout(function (){
 					shinigamiSpecialEnd();
 					SpecialFlag -= 1;
+					talk.style.display = 'none';
 					Menuon = false;
 					kokomove();
 				},9000);
@@ -219,6 +228,7 @@ document.getElementById('other').onclick = function (){
 	}
 	else{
 		SpecialFlag -= 1;
+		talk.style.display = 'none';
 		Menuon = false;
 		kokomove();
 		return ;

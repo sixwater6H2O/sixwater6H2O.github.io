@@ -76,7 +76,6 @@ setInterval(() => {
 	move_talk();
     // 处于追逐鼠标状态
     if (isCatchUp == false && isIdle == false) {
-		hideMessage();
 		SpecialSay(chasing_talk);
 		setTimeout("SpecialEnd();",talk_long * 1000 );
 		pet.left = position.x;

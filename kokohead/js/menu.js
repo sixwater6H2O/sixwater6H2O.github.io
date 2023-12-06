@@ -11,6 +11,7 @@ document.getElementById("pet").onclick = function () {
 function showMenu(){
 	Menuon = true;
 	SpecialFlag+=1;
+	shinigamiflag+=1;
 	hideMessage();
 	shinigami_hideMessage();
 	shinigami_hideMessage()
@@ -21,6 +22,7 @@ function hideMenu(){
 	Menuon = false;
 	document.getElementById('pet_menu').style.display = 'none';
 	SpecialFlag-=1;
+	shinigamiflag-=1;
 }
 
 var playing = document.getElementById('playing');
@@ -211,13 +213,13 @@ document.getElementById('mask').onclick = function (){
 				makoto_talk.style.top = makoto_talky + "px"
 				makoto_talk.style.display = 'block';
 				shinigami_hideMessage();
-				setTimeout("makoto_talk.style.display = 'none';",4000);
+				setTimeout("makoto_talk.style.display = 'none';",3000);
 				setTimeout(function(){
 					shinigamiSpecialSay(makoto_ans[1]);
 				},4000);
-				setTimeout("shinigamiSpecialEnd()",9000);
+				setTimeout("shinigamiSpecialEnd()",8000);
 				setTimeout("SpecialSay(makoto_ans[0]);",5000);
-				setTimeout("SpecialEnd()",10000);
+				setTimeout("SpecialFlag-=1;talk.style.display = 'none';",9000);
 				
 				setTimeout(function (){
 					makoto_talk.innerHTML = makoto_talking2;

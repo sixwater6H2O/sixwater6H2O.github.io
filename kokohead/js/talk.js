@@ -168,7 +168,7 @@ function shinigami_hideMessage(){
 function say(content){
 	talk.innerHTML = content;
 	showMessage();
-	setTimeout("hideMessage();",8000);
+	setTimeout("if(SpecialFlag<=0) hideMessage();",8000);
 	//clearTimeout(t1);
 }
 
@@ -178,8 +178,7 @@ function shinigami_say(content){
 	shinigami_showMessage();
 	setTimeout(
 		function(){
-			
-			shinigami_hideMessage();
+			if(shinigamiflag<=0) shinigami_hideMessage();
 	},7000);
 	//clearTimeout(t1);
 }
@@ -195,9 +194,10 @@ function ChasingSay(content){
 }
 function ChasingEnd(){
 	move_talk();
+	SpecialFlag -= 1;
 	document.getElementById('chase_talk').style.display = 'none';
 	move_talk();
-	SpecialFlag -= 1;
+	
 }
 
 function SpecialSay(content){
@@ -209,8 +209,9 @@ function SpecialSay(content){
 
 }
 function SpecialEnd(){
-	hideMessage();
 	SpecialFlag -= 1;
+	if(SpecialFlag<=0) hideMessage();
+	
 }
 
 function shinigamiSpecialSay(content){
@@ -222,8 +223,9 @@ function shinigamiSpecialSay(content){
 
 }
 function shinigamiSpecialEnd(){
-	shinigami_hideMessage();
 	shinigamiflag -= 1;
+	if(shinigamiflag<=0) shinigami_hideMessage();
+	
 }
 
 //move_talk();
