@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+        <meta charset="utf-8">
+        <title>打地马！</title>
+		<link rel="icon" href="src/favicon_logosc/favicon.ico" type="image/x-icon">
+		<meta charset="UTF-8">
+        <!-- <link rel="stylesheet" type="text/css" href="css/地鼠.css"/> --><style>
+			@font-face {
+				font-family: unifont点阵黑;
+				src: url(src/unifont-16.0.01.otf);
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html, body {
+				height: 100%;
+				width: 100%;
+				background-size:cover;
+				display: flex;
+				  
+			}
+			
+			.container {
+				text-align: center;
+				padding: 50px;
+			}
+
+			.trigger {
+				
+				position: absolute;
+				top: -4%;
+				left: 7%;
+				transform: translate(-50%, -50%);
+				<!-- padding: 30px 30px; -->
+				<!-- background-color: #007BFF; -->
+				color: white;
+				width:15px;
+				height:15px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			
+			.bgm_trigger {
+				
+				position: absolute;
+				top: -4%;
+				left: 2%;
+				transform: translate(-50%, -50%);
+				<!-- padding: 30px 30px; -->
+				<!-- background-color: #007BFF; -->
+				color: white;
+				width:15px;
+				height:15px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			.restart_trigger {
+				
+				position: absolute;
+				top: -4%;
+				left: 12%;
+				transform: translate(-50%, -50%);
+				<!-- padding: 30px 30px; -->
+				<!-- background-color: #007BFF; -->
+				color: white;
+				width:15px;
+				height:15px;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			.trigger:hover {
+				background-image: url('src/set2.png');
+			}
+
+			.modal {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				font-family: unifont点阵黑;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.modal-content {
+				background-color: white;
+				padding: 20px;
+				border-radius: 10px;
+				font-family: unifont点阵黑;
+				width: 300px;
+				text-align: center;
+			}
+
+			.close {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+
+			.slider {
+				width: 100%;
+				margin: 10px 0;
+			}
+			
+			.lyrics-container {
+				position: absolute;
+				bottom: 0%;
+				width: 98%;
+				height: 3%;
+				<!-- background-color: rgba(162,94,51,0.5); -->
+				<!-- color: rgba(162,94,51,1.00); -->
+				
+				text-align: center;
+				padding: 10px;
+				display: none;
+				overflow: hidden;
+				justify-content: center;
+			}
+
+			.lyrics-container p {
+				margin: 0;
+				text-align: right;
+				font-size: 12px;
+				font-family: unifont点阵黑;
+				color: rgba(162,94,51,0.8);
+				<!-- transition: transform 1s ease-in-out; -->
+			}
+			.fixed-bottom-left {
+			  position: fixed; /* 相对于视口固定定位 */
+			  bottom: 0;
+			  left: 0;
+			  font-size: 5px;
+			  font-family: unifont点阵黑; /* 指定字体，并提供一个备用字体 */
+			  color: rgba(162,94,51,0.4);
+			}
+
+			.hidden {
+				display: none;
+			}
+		</style>
+    </head>
+	
+    <body background='src/back.png'>
+		<div id="playbox">
+			
+			<div id="out" style="
+				 position: absolute;
+				  top: 53%;
+				  left: 50%;
+				  transform: translate(-50%, -50%);">
+				  <img class='myanata' src="src/title.png" style='
+					width: 15%;
+					height: auto;
+					position: absolute;
+						  top: -6%;
+						  left: 50%;
+						  transform: translate(-50%, -50%);
+				'></img>
+				<div class="board" style="
+					position: absolute;
+					  top: -5%;
+					  right: 0%;
+					  transform: translate(-5%, -5%);
+				">
+						<p style="font-family: unifont点阵黑;font-size: 12px; color:rgba(162,94,51,1);" ><strong>打中次数:<span id="fen_shu" >00</span>&emsp;
+						倒计时:<span id="time">30</span><strong>
+						</p>
+
+					</div>
+				<audio src="src/大香蕉.mp3" loop="loop" id='music' style="
+					position: absolute;
+					  bottom: 0%;
+					  left: 50%;
+					  transform: translate(-50%, -50%);
+				"></audio>
+				<audio src="src/click.mp3" id='click_music'"></audio>
+				
+				
+				<img class="trigger" id="setting" onclick="openModal()" src='src/set2.png'></img>
+				<img class='bgm_trigger' id="bgm" onclick="bgm_control()" src='src/bgmoff.png'></img>
+				<img class='restart_trigger' id="restart" onclick="restart_game()" src='src/restart.png'></img>
+			
+
+				<!-- 弹窗 -->
+				<div class="modal" id="modal">
+					<div class="modal-content">
+						<span class="close" onclick="closeModal()">×</span>
+						<h2>游戏设置</h2>
+						<br/>
+						<!-- 拖动条1（低中高） -->
+						<label for="slider1">难度:</label>
+						<input type="range" id="slider1" min="0" max="2" step="1" value="1" class="slider">
+						<span id="value1">中等</span>
+
+						<br/>
+						<br/>
+
+						<!-- 拖动条2（任意拖动，10到60） -->
+						<label for="slider2">倒计时:</label>
+						<input type="range" id="slider2" min="10" max="60" value="30" class="slider">
+						<span id="value2">30</span>
+						
+						<br/>
+						<br/>
+						<!-- 拖动条1（低中高） -->
+						<label for="slider3">Hit音效:</label>
+						<input type="range" id="slider3" min="0" max="1" step="1" value="0" class="slider">
+						<span id="value3">关</span>
+						<br/>
+						
+						<button onclick="applySettings()" style="font-size:12px;font-family: unifont点阵黑;">应用设置</button>
+					</div>
+				</div>
+				<div class="lyrics-container" id="lyrics-container">
+					<p id="current-lyric" font></p>
+				</div>
+				<div class="fixed-bottom-left">作者：六点儿水	画师：桃小黑</div>
+				
+
+			</div>
+			
+		</div>
+		
+        
+		
+    </body>
+	<script type="text/javascript" src="js/alert.js"></script>
+	<script type="text/javascript" src="js/setting.js"></script>
+	<script type="text/javascript" src="js/bgm.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+</html
