@@ -32,7 +32,7 @@ onload = function () {
 		fall.style.bottom = "0";
 		fall.id = 'fall';
 		fall_cnt += 1;
-		fall.src = "src/banana.gif";
+		fall.src = "src/banana.GIF";
 		out.appendChild(fall);
     }
 	alert("三笙ycyx又在水群不开播了，快抓住他！\n");
@@ -51,11 +51,11 @@ function suijilaoshu(){
 	}
 	index = Math.floor(Math.random()*ps.length);
 	for(var i = 0; i < ps.length; i++){
-		ps[i].src = "src/banana.gif";
+		ps[i].src = "src/banana.GIF";
 		ps[i].id = 'fall';
 					
 	}
-	ps[index].src = "src/ssycyx.gif";
+	ps[index].src = "src/ssycyx.GIF";
 	count = index;
 	ps[index].id = "ssycyx";
 }
@@ -93,7 +93,7 @@ function game_end(){
 	time.innerHTML = second.toString(10).padStart(2, '0');
 	fen.innerHTML = fenshu.toString(10).padStart(2, '0');
 	for(var i = 0; i < ps.length; i++){
-		ps[i].src = "src/banana.gif";
+		ps[i].src = "src/banana.GIF";
 		ps[i].id = 'fall';
 					
 	}
